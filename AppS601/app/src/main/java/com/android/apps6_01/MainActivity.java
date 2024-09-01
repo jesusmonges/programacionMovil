@@ -1,0 +1,49 @@
+package com.android.apps6_01;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class MainActivity extends AppCompatActivity {
+
+    private EditText et1;
+    private int num;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        et1 = findViewById(R.id.et1);
+        num = (int)(Math.random()*500);
+        String cadena = String.valueOf(num);
+        Toast notification = Toast.makeText(this, cadena,Toast.LENGTH_LONG);
+        notification.show();
+
+    }
+
+    public void controlar(View v) {
+        String valorIngresado = et1.getText().toString();
+        int valor = Integer.parseInt(valorIngresado);
+        if(valor == num){
+            Toast notificacion = Toast.makeText(this,"Nice!",Toast.LENGTH_LONG);
+            notificacion.show();
+        } else {
+            Toast notificacion = Toast.makeText(this,"Huh?",Toast.LENGTH_LONG);
+            notificacion.show();
+        }
+    }
+}
