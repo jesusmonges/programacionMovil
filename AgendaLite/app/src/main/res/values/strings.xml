@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AgendaLite</string>
+    <string name="hint_nombre">Nombre:</string>
+    <string name="hint_telefono">Telefono:</string>
+    <string name="hint_correo_electronico">Correo:</string>
+    <string name="btn_guardar">Guardar</string>
+    <string name="btn_agregar">Agregar</string>
+</resources>
